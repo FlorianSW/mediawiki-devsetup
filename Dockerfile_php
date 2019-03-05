@@ -1,0 +1,7 @@
+FROM php:fpm-alpine
+RUN docker-php-ext-install pdo pdo_mysql mysqli opcache
+
+COPY ./install_composer.sh /opt/install_composer.sh
+RUN chmod +x /opt/install_composer.sh && \
+	/opt/install_composer.sh && \
+	mv composer.phar /usr/local/bin/composer

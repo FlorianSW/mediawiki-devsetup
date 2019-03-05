@@ -14,7 +14,9 @@ services:
     - ./mariadb:/var/lib/mysql
 
   php-fpm:
-    image: php:fpm-alpine
+    build:
+      context: ./
+      dockerfile: Dockerfile_php
     links: [database]
     depends_on: [database]
     volumes:
