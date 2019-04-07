@@ -1,0 +1,3 @@
+#! /usr/bin/env bash
+
+winpty docker exec -it -w //code//w mediawiki_php-fpm_1 sh -c "composer $@"

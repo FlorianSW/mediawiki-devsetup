@@ -15,8 +15,7 @@ services:
 
   php-fpm:
     build:
-      context: ./
-      dockerfile: Dockerfile_php
+      context: ./php-fpm/
     links: [database]
     depends_on: [database]
     volumes:
