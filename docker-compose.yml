@@ -16,7 +16,6 @@ services:
   php-fpm:
     build:
       context: ./php-fpm/
-    links: [database]
     depends_on: [database]
     volumes:
     - ./webroot:/code
@@ -27,7 +26,6 @@ services:
     image: nginx:alpine
     ports:
     - "8080:80"
-    links: [php-fpm]
     depends_on: [php-fpm]
     volumes:
     - ./site.conf:/etc/nginx/conf.d/default.conf

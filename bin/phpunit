@@ -2,7 +2,7 @@
 source "$(dirname $0)/../lib/php.lib.sh"
 
 if [[ $@ == extensions* ]]; then
-	php "tests/phpunit/phpunit.php $@"
+	composer "phpunit $@"
 else
 	php "tests/phpunit" "phpunit.php $@"
 fi

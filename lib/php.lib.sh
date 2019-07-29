@@ -11,10 +11,10 @@ PHP_CONTAINER="winpty docker exec -it -w //code//w mediawiki_php-fpm_1 sh -c "
 #
 function php {
 	if [[ -z "$2" ]]; then
-		php_args=$1
+		php_args=$@
 	else
 		cwd=$1
-		php_args=$2
+		php_args=${@:2}
 		command_string="cd $cwd &&"
 	fi
 	command_string="$command_string php $php_args"
