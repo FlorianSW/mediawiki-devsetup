@@ -22,6 +22,15 @@ services:
     ports:
     - "9000:9000"
 
+  hhvm:
+    build:
+      context: ./hhvm/
+    depends_on: [database]
+    volumes:
+    - ./webroot:/var/www/public
+    ports:
+      - "81:80"
+
   nginx:
     image: nginx:alpine
     ports:
